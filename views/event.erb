@@ -19,8 +19,10 @@
                         <%= @users_table.where(id: rsvp[:user_id]).to_a[0][:name] %>
 
                         <small>
+                            <% if @current_user && @current_user[:id] == rsvp[:user_id] %>
                             (<a href="/rsvps/<%= rsvp[:id] %>/edit">edit</a> | <a href="/rsvps/<%= rsvp[:id] %>/destroy">delete</a>)
-                        </small>
+                            <% end %>
+                            </small>
                     </h5>
                     <%= rsvp[:comments] %>
                 </div>
